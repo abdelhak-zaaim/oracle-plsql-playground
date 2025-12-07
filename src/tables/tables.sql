@@ -6,3 +6,6 @@ insert into student (id, name, email, age) values (2, 'Bob', 'bob@gmail.com', 22
 insert into student (id, name, email, age) values (3, 'Charlie', 'charlie@gmail.com', 23);
 insert into student (id, name, email, age) values (4, 'David', 'david@gmail.com', 21);
 commit;
+
+select *
+from student;

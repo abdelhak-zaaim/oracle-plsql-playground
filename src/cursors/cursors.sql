@@ -11,7 +11,7 @@ begin
     elsif sql%found then
         rowcoun := sql%rowcount;
         DBMS_OUTPUT.PUT_LINE(rowcoun || ' row effected');
+        commit ;
     end if;
-
 
 end;
