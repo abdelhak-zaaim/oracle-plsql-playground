@@ -47,3 +47,22 @@ begin
 
     end loop;
 end;
+
+
+-- in this example we use records
+
+declare
+    userrecord STUDENT%rowtype;
+    cursor students is select * into userrecord
+                       from STUDENT;
+begin
+
+    open students;
+    loop
+        fetch students into userrecord;
+        DBMS_OUTPUT.PUT_LINE(userrecord.name || ' ' || userrecord.email || ' ' || userrecord.age);
+        exit when students%notfound;
+
+    end loop;
+    close students;
+end;
