@@ -31,9 +31,10 @@ begin
 end;
 
 declare
-    nbr1 number := 3;
-    nbr2 number := 6;
-    sum1 number;
+    nbr1    number := 3;
+    nbr2    number := 6;
+    sum1    number;
+    counter number := 5;
 
     procedure sum_fun(number1 in number, number2 in number, sum_out out number) is
     begin
@@ -41,9 +42,13 @@ declare
     end sum_fun;
 
 begin
-    sum_fun(nbr1, nbr2, sum1);
-
+    <<my_functionality>>
+        sum_fun(number1 => nbr1, number2 => nbr2, sum_out => sum1);
     DBMS_OUTPUT.PUT_LINE(sum1);
+    counter := counter - 1;
+    if counter > 0 then
+        goto my_functionality;
+    end if;
 
 end;
 /
