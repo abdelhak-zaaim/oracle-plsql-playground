@@ -18,15 +18,32 @@ end;
 /
 
 -- create an example procedure with one in parameter
-create or replace procedure print_first_name (name1 in varchar2) as
+create or replace procedure print_first_name(name1 in varchar2) as
 begin
     DBMS_OUTPUT.PUT_LINE(name1);
 end;
 /
-
 
 -- test that procedure
 
 begin
     print_first_name('abdelhakk');
 end;
+
+declare
+    nbr1 number := 3;
+    nbr2 number := 6;
+    sum1 number;
+
+    procedure sum_fun(number1 in number, number2 in number, sum_out out number) is
+    begin
+        sum_out := number1 + number2;
+    end sum_fun;
+
+begin
+    sum_fun(nbr1, nbr2, sum1);
+
+    DBMS_OUTPUT.PUT_LINE(sum1);
+
+end;
+/
