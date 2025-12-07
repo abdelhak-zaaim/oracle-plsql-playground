@@ -29,3 +29,23 @@ declare
 begin
     DBMS_OUTPUT.PUT_LINE(sum_of_tow(nmbr1, nmbr2));
 end;
+
+
+-- lets practice some recursive functions
+-- just like any other programing language, pl/sql works he same way
+-- call the same function recursively until an exit condition is met
+
+create or replace function rec_function(nbr in number) return number as
+begin
+    if nbr > 0 then
+        return nbr + rec_function(nbr - 1);
+    else
+        return 0;
+    end if;
+end;
+
+--so lets test our new rec function
+
+begin
+    DBMS_OUTPUT.PUT_LINE(rec_function(6));
+end;
