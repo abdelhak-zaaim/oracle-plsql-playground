@@ -24,10 +24,17 @@ begin
 end;
 /
 
+-- non parameter procedure example
+    create or replace procedure non_param_pro as
+    begin
+        DBMS_OUTPUT.PUT_LINE('no param pros working');
+    end;
+
 -- test that procedure
 
 begin
     print_first_name('abdelhakk');
+    non_param_pro;
 end;
 
 -- drop the procedure
