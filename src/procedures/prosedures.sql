@@ -30,7 +30,11 @@ begin
     print_first_name('abdelhakk');
 end;
 
+-- drop the procedure
+drop procedure print_first_name;
+
 declare
+    -- declaration of those variable should be before the procedure
     nbr1    number := 3;
     nbr2    number := 6;
     sum1    number;
@@ -43,7 +47,7 @@ declare
 
 begin
     <<my_functionality>>
-        sum_fun(number1 => nbr1, number2 => nbr2, sum_out => sum1);
+        sum_fun(nbr1, number2 => nbr2, sum_out => sum1);
     DBMS_OUTPUT.PUT_LINE(sum1);
     counter := counter - 1;
     if counter > 0 then
