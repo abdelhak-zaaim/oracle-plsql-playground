@@ -1,7 +1,7 @@
 -- lets define an simple user defined record
 
 declare
-    type req_std is record (name varchar2(50), email varchar2(50), age number(3));
+    type req_std is record (name varchar2(50), email  varchar2(50) not null default 'default@gmail.com', age number(3));
 
     example req_std;
 begin
