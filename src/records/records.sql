@@ -21,8 +21,23 @@ declare
     example STUDENT%rowtype;
 begin
 
-    select * into example from STUDENT where id=1;
+    select * into example from STUDENT where id = 1;
 
     DBMS_OUTPUT.PUT_LINE(example.EMAIL);
 
+end;
+
+
+-- now lets see the third example of record -- the cursor based one
+
+declare
+    -- first lets declare an cursor
+    cursor students_curs is select *
+                            from STUDENT;
+    record_example students_curs%rowtype;
+begin
+
+    select * into record_example from STUDENT where id = 1;
+    -- lets print the results
+    DBMS_OUTPUT.PUT_LINE(record_example.email);
 end;
