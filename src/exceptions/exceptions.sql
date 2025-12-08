@@ -33,11 +33,16 @@ end;
 -- example of raise an exception with dbms.standard package
 
 declare
+    my_own exception;
+    PRAGMA EXCEPTION_INIT ( my_own,-20201);
+
 begin
-    dbms_standard.RAISE_APPLICATION_ERROR(121212, 'hello tis is error');
+    Raise my_own;
+    dbms_standard.RAISE_APPLICATION_ERROR(-20201, 'hello tis is error hsvdhggjdfe');
 
 exception
-    when others then
-        DBMS_OUTPUT.PUT_LINE('an error appears hahaha');
+    when my_own then
+        DBMS_OUTPUT.PUT_LINE('i catch you -20001');
+        raise;
 
 end;
