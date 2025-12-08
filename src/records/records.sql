@@ -1,0 +1,15 @@
+-- lets define an simple user defined record
+
+declare
+    type req_std is record (name varchar2(50), email varchar2(50), age number(3));
+
+    example req_std;
+begin
+    -- lets initialise it  wth some values
+    example.name := 'abdelhak';
+    example.email := 'abdelhak@gmail.com';
+    example.age := 23;
+
+    -- lets prints that results
+    DBMS_OUTPUT.PUT_LINE(example.email);
+end;
