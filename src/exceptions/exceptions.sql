@@ -28,3 +28,16 @@ Exception
         DBMS_OUTPUT.PUT_LINE('my exception is raised lol!!');
 
 end;
+
+
+-- example of raise an exception with dbms.standard package
+
+declare
+begin
+    dbms_standard.RAISE_APPLICATION_ERROR(121212, 'hello tis is error');
+
+exception
+    when others then
+        DBMS_OUTPUT.PUT_LINE('an error appears hahaha');
+
+end;
