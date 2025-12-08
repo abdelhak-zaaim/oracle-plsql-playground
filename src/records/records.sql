@@ -13,3 +13,16 @@ begin
     -- lets prints that results
     DBMS_OUTPUT.PUT_LINE(example.email);
 end;
+
+
+-- now lets see an table based record
+
+declare
+    example STUDENT%rowtype;
+begin
+
+    select * into example from STUDENT where id=1;
+
+    DBMS_OUTPUT.PUT_LINE(example.EMAIL);
+
+end;
