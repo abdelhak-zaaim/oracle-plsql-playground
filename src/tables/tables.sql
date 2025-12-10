@@ -9,3 +9,6 @@ commit;
 
 select *
 from student;
+
+
+alter table student add phone varchar(15);
