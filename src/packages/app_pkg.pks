@@ -30,7 +30,8 @@ create or replace package body student_management as
 end;
 /
 
-
+declare
+    s_id STUDENT.ID%type := 2;
 begin
-    DBMS_OUTPUT.PUT_LINE('Student name : ' || student_management.get_student_name_by_id(2));
+    DBMS_OUTPUT.PUT_LINE('Student name : ' || student_management.get_student_name_by_id(s_id));
 end;
