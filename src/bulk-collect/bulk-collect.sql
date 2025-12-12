@@ -1,9 +1,10 @@
 -- now lets use bulk collect technic to reduce context suitching
 
 declare
-    type list_of is table of student%rowtype index by pls_integer;
+    type list_of is table of student%rowtype;
     s_list list_of := list_of();
 begin
+
 
     select * BULK COLLECT into s_list from STUDENT;
 
