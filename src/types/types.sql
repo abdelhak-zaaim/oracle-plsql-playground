@@ -39,13 +39,32 @@ DECLARE
     Cursor c_student is select *
                         from student
                         where age < 25 for update ;
+    TYPE s_list is table of student%rowtype index by pls_integer;
+    students_t s_list;
 BEGIN
-    for i in c_student loop
-        update STUDENT set PHONE = '212681312798' where current of c_student;
+    execute immediate 'select * from STUDENT' bulk collect into students_t;
+
+    for st in 1 .. students_t.COUNT
+        loop
+            DBMS_OUTPUT.PUT_LINE(students_t(st).NAME);
         end loop;
-    commit;
+
+    for i in c_student
+        loop
+            update STUDENT set PHONE = '212681312798' where current of c_student;
+        end loop;
+    rollback;
 END;
 /
 
 
-select * from STUDENT;
+select max(AGE)
+from STUDENT;
+
+CREATE OR REPLACE FUNCTION ROUNDONG_S(s_text IN VARCHAR2)
+    RETURN VARCHAR2
+    IS
+BEGIN
+    RETURN '(' || s_text || ')';
+END ROUNDONG_S;
+/
